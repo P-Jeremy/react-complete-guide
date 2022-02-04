@@ -8,10 +8,10 @@ describe('INTEGRATION | Component | ExpenseItem', function () {
       // given
       const date = new Date('2022-01-01');
       const title = 'Item test';
-      const amout = 42;
+      const amount = 42;
 
       // when
-      render(<ExpenseItem date={date} title={title} amount={amout} />);
+      render(<ExpenseItem date={date} title={title} amount={amount} />);
 
       // then
       expect(screen.getByText('01')).toBeInTheDocument();
