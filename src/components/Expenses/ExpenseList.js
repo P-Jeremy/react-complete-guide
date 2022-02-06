@@ -4,7 +4,8 @@ import ExpenseItem from './ExpenseItem';
 import Card from '../ui/Card';
 import './ExpenseList.scss';
 
-const Expenses = (props) => {
+const ExpenseList = (props) => {
+
   return (
     <Card className='expenses'>
       {props.items.map((item) => (
@@ -14,4 +15,4 @@ const Expenses = (props) => {
   );
 };
 
-export default Expenses;
+export default ExpenseList;
