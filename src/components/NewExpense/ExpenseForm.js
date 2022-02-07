@@ -13,14 +13,23 @@ const ExpenseForm = (props) => {
   //   enteredDate: '',
   // });
 
+  const clearStates = () => {
+    setEnteredTitle('');
+    setEnteredAmount('');
+    setEnteredDate('');
+  };
+
   const onSubmit = (event) => {
-    event.preventDefault()
-    return props.onSubmit({
+    event.preventDefault();
+
+    props.onSubmit({
       id: Math.ceil(Math.random() * 20),
       title: enteredTitle,
       amount: enteredAmount,
       date: enteredDate,
     });
+
+    return clearStates()
   };
 
   const titleChangeHandler = (event) => {
@@ -36,6 +45,7 @@ const ExpenseForm = (props) => {
 
   const titleInputAttributes = {
     type: 'text',
+    value: enteredTitle ?? ''
   };
 
   const amountChangeHandler = (event) => {
@@ -50,6 +60,7 @@ const ExpenseForm = (props) => {
     type: 'number',
     min: '0.01',
     step: '0.01',
+    value: enteredAmount ?? ''
   };
 
   const dateChangeHandler = (event) => {
@@ -65,6 +76,7 @@ const ExpenseForm = (props) => {
     type: 'date',
     min: '2019-01-01',
     max: '2022-12-31',
+    value: enteredDate ?? ''
   };
 
   return (

@@ -22,11 +22,24 @@ describe('ACCEPTANCE | Component | App', function () {
     
       fireEvent.click(button)
 
+      userEvent.type(dateInput, '2023-02-07');
+
+      userEvent.type(titleInput, 'An other expense');
+
+      userEvent.type(amountInput, '60');
+
+      fireEvent.click(button)
+
       expect(screen.getByText('01')).toBeInTheDocument();
       expect(screen.getByText('janvier')).toBeInTheDocument();
       expect(screen.getByText('2022')).toBeInTheDocument();
       expect(screen.getByText('An expense')).toBeInTheDocument();
       expect(screen.getByText('50')).toBeInTheDocument();
+      expect(screen.getByText('07')).toBeInTheDocument();
+      expect(screen.getByText('février')).toBeInTheDocument();
+      expect(screen.getByText('2023')).toBeInTheDocument();
+      expect(screen.getByText('An other expense')).toBeInTheDocument();
+      expect(screen.getByText('60')).toBeInTheDocument();
     });
   });
 });
