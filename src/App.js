@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import ExpenseList from './components/Expenses/ExpenseList';
 import NewExpense from './components/NewExpense/NewExpense';
+import { ExpenseProvider } from './context/ExpenseContext';
 
 const App = () => {
-  const [expenses, setExpenses] = useState([]);
-
-  const onSubmit = (expense) => {
-
-    setExpenses([...expenses, expense]);
-  };
 
   return (
-    <div>
-      <NewExpense onSubmit={onSubmit} />
-      {expenses.length && <ExpenseList items={expenses} />}
-    </div>
+    <ExpenseProvider>
+      <div>
+        <NewExpense />
+        <ExpenseList />
+      </div>
+    </ExpenseProvider>
   );
 };
 

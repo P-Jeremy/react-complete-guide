@@ -23,7 +23,7 @@ describe('INTEGRATION | Component | ExpenseList', function () {
       ];
 
       // when
-      render(<ExpenseList items={expenses}/>);
+      render(<ExpenseList expenses={expenses}/>);
       // then
       expect(screen.getByText('Toilet Paper')).toBeInTheDocument();
       expect(screen.getByText('14')).toBeInTheDocument();

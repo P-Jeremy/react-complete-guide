@@ -3,10 +3,10 @@ import React from 'react';
 import ExpenseForm from './ExpenseForm';
 import './NewExpense.scss';
 
-const NewExpense = (props) => {
+const NewExpense = () => {
   return (
     <div className='new-expense'>
-      <ExpenseForm onSubmit={props.onSubmit}/>
+      <ExpenseForm/>
     </div>
   );
 };
