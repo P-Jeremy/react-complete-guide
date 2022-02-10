@@ -3,16 +3,23 @@ import React from 'react';
 import ExpenseItem from './ExpenseItem';
 import Card from '../ui/Card';
 import './ExpenseList.scss';
+import { ExpenseConsumer } from '../../context/ExpenseContext';
 
-const ExpenseList = (props) => {
-
+const ExpenseList = ({ expenses }) => {
   return (
-    <Card className='expenses'>
-      {props.items.map((item) => (
-        <ExpenseItem key={item.id} title={item.title} date={item.date} amount={item.amount}/>
-      ))}
-    </Card>
+    expenses.length && (
+      <Card className='expenses'>
+        {expenses.map((item) => (
+          <ExpenseItem
+            key={item.id}
+            title={item.title}
+            date={item.date}
+            amount={item.amount}
+          />
+        ))}
+      </Card>
+    )
   );
 };
 
-export default ExpenseList;
+export default ExpenseConsumer(ExpenseList);
